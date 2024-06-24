@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar por Categoría - Librería Online</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buscar.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="header-container">
+        <div class="container">
+            <img src="{% static 'img/logo_1.png' %}" alt="Logo de la librería" class="logo">
+            <h1>MundoLiterario</h1>
+            <nav>
+                <ul class="nav nav-pills">
+                    <li><a href="{% url 'index' %}" style="color: #000000;"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                    <li><a href="{% url 'ver_carrito' %}" style="color: #000000;"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
+                    <li><a href="{% url 'quienes_somos' %}" style="color: #000000;"><span class="glyphicon glyphicon-queen"></span> Socios</a></li>
+                    <li><a href="{% url 'cuenta' %}"style="color: #000;"><span class="glyphicon glyphicon-user"></span> Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Buscar por Categoría</h2>
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">Ficción</a>
+            <a href="#" class="list-group-item list-group-item-action">No Ficción</a>
+            <a href="#" class="list-group-item list-group-item-action">Ciencia</a>
+            <a href="#" class="list-group-item list-group-item-action">Historia</a>
+            <a href="#" class="list-group-item list-group-item-action">Biografías</a>
+            <a href="#" class="list-group-item list-group-item-action">Infantil</a>
+            <a href="#" class="list-group-item list-group-item-action">Fantasía</a>
+            <a href="#" class="list-group-item list-group-item-action">Romance</a>
+            <a href="#" class="list-group-item list-group-item-action">Misterio</a>
+            <a href="#" class="list-group-item list-group-item-action">Aventura</a>
+            <a href="#" class="list-group-item list-group-item-action">Autoayuda</a>
+            <a href="#" class="list-group-item list-group-item-action">Salud</a>
+        </div>
+    </div>
+
+    <div class="section-bottom">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <h2>Contacto</h2>
+                    <p> Puedes contactarnos a través de:</p>
+                    <ul>
+                        <li>Email: contactoOF@mundoliterario.cl</li>
+                        <li>Teléfono: +56 9 9332 9999</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h2>Ayuda</h2>
+                    <p>Si necesitas ayuda, no dudes en contactarnos o revisar nuestras preguntas frecuentes.</p>
+                    <ul>
+                        <li><a href="{% url 'preguntas_frecuentes' %}">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <br><br><br><br><p>Derechos de autor © 2024 - MundoLiterario</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

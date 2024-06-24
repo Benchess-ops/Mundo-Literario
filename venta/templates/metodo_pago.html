@@ -1,0 +1,74 @@
+    
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar Método de Pago</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Selecciona tu Método de Pago</h2>
+        <form action="{% url 'metodo_pago' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>
+                    <input type="radio" name="opcion" value="retiro" required> Retirar en Tienda
+                </label>
+                <label>
+                    <input type="radio" name="opcion" value="online" required> Pagar en Línea
+                </label>
+            </div>
+
+            <div id="seleccionRetiro" style="display: none;">
+                <div class="form-group">
+                    <label for="lugar_retiro">Lugar de Retiro</label>
+                    <select class="form-control" id="lugar_retiro" name="lugar_retiro">
+                        <option value="sucursal1">Libros Juanito</option>
+                        <option value="sucursal2">Libreria Babu</option>
+                        <option value="sucursal3">Lectores PCH</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success">Confirmar Retiro</button>
+            </div>
+
+            <div id="metodosPago" style="display: none;">
+                <div class="form-group">
+                    <label for="metodo_pago">Método de Pago</label>
+                    <select class="form-control" id="metodo_pago" name="metodo_pago">
+                        <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="transferencia">Transferencia Bancaria</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Continuar</button>
+        </form>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('input[name="opcion"]').on('change', function() {
+                if ($(this).val() == 'retiro') {
+                    $('#metodosPago').hide();
+                    $('#seleccionRetiro').show();
+                } else {
+                    $('#seleccionRetiro').hide();
+                    $('#metodosPago').show();
+                }
+            });
+
+            $('#metodo_pago').on('change', function() {
+                if ($(this).val() == 'tarjeta') {
+                    $('#formularioTarjeta').show();
+                } else {
+                    $('#formularioTarjeta').hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

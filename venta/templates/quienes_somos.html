@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librería Online</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <header style="background-color: #ffffff;">
+        <div class="container">
+            <img src="{% static 'img/logo_1.png' %}" alt="Logo de la librería" class="logo">
+            <h1 style="color: #000;">MundoLiterario</h1>
+            <nav>
+                <ul class="nav navbar-nav navbar-center">
+                    <li><a href="{% url 'index' %}" style="color: #000000;"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                    <li><a href="{% url 'ver_carrito' %}" style="color: #000000;"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
+                    <li><a href="{% url 'quienes_somos' %}" style="color: #000000;"><span class="glyphicon glyphicon-queen"></span> Socios</a></li>
+                    <li><a href="{% url 'cuenta' %}" style="color: #000;"><span class="glyphicon glyphicon-user"></span> Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <h2 class="section-title">¡Bienvenidos a nuestro sitio web!</h2>
+        <p class="section-content">
+            Somos un grupo de estudiantes apasionados por la informática y la tecnología. Nuestro equipo está formado por mentes creativas y curiosas que están constantemente explorando nuevas ideas y soluciones innovadoras en el mundo digital.
+            Desde el desarrollo de software hasta la ciberseguridad, pasando por la inteligencia artificial y el diseño web, estamos comprometidos con el aprendizaje continuo y el crecimiento profesional en el campo de la informática.
+            Nos esforzamos por aplicar nuestros conocimientos y habilidades en proyectos que no solo desafíen nuestros límites, sino que también contribuyan de manera significativa al avance de la tecnología y al bienestar de la sociedad.
+            Nuestra misión es crear un espacio donde podamos compartir nuestros conocimientos, experiencias y perspectivas con la comunidad, así como inspirar a otros a seguir su pasión por la informática y la innovación tecnológica.
+           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </p>
+    </div>
+    
+    <div class="section-bottom">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <h2>Contacto</h2>
+                    <p> Puedes contactarnos a través de:</p>
+                    <ul>
+                        <li>Email: contactoOF@mundoliterario.cl</li>
+                        <li>Teléfono: +56 9 9332 9999</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h2>Ayuda</h2>
+                    <p>Si necesitas ayuda, no dudes en contactarnos o revisar nuestras preguntas frecuentes.</p>
+                    <ul>
+                        <li><a href="{% url 'preguntas_frecuentes' %}">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <br><br><br><br><p>Derechos de autor © 2024 - MundoLiterario</p>
+                </div>
+            </div>
+        </div>
+    </div>
+s    
+</body>
+</html>
+
+
+
+
+
+
+

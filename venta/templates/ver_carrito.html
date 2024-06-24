@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/carrito.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header style="background-color: #ffffff;">
+        <div class="container">
+            <img src="{% static 'img/logo_1.png' %}" alt="Logo de la librería" class="logo">
+            <h1 style="color: #000;">MundoLiterario</h1>
+            <nav>
+                <ul class="nav navbar-nav navbar-center">
+                    <li><a href="{% url 'index' %}" style="color: #000000;"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                    <li><a href="{% url 'ver_carrito' %}" style="color: #000000;"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
+                    <li><a href="{% url 'quienes_somos' %}" style="color: #000000;"><span class="glyphicon glyphicon-queen"></span> Socios</a></li>
+                    <li><a href="{% url 'cuenta' %}" style="color: #000;"><span class="glyphicon glyphicon-user"></span> Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Carrito de Compras</h2>
+            {% if carrito_items %}
+            <div class="card">
+                <div class="card-body">
+                    {% for item in carrito_items %}
+                    <div class="producto">
+                        <div class="media">
+                            <img src="{{ item.libro.imagen.url }}" alt="{{ item.libro.titulo }}">
+                            <div class="media-body">
+                                <h5 class="mt-0">{{ item.libro.titulo }}</h5>
+                                <p>Precio: ${{ item.libro.precio }}</p>
+                                <p>Cantidad: {{ item.cantidad }}</p>
+                                <p>Subtotal: ${{ item.subtotal }}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-danger btn-eliminar" data-toggle="modal" data-target="#confirmarEliminar{{ item.libro.id }}">
+                                Eliminar
+                            </button>
+                            <div class="modal fade" id="confirmarEliminar{{ item.libro.id }}" tabindex="-1" role="dialog" aria-labelledby="modalEliminarLabel{{ item.libro.id }}">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="modalEliminarLabel{{ item.libro.id }}">Confirmar Eliminación</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>¿Estás seguro que deseas eliminar "{{ item.libro.titulo }}" del carrito?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form action="{% url 'eliminar_item_carrito' item.libro.id %}" method="POST">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                            </form>
+                                            <br>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="total">
+                        <h4>Total: ${{ total }}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-9"><br>
+                    <a href="{% url 'index' %}" class="btn btn-primary">Seguir Comprando</a>
+                </div>
+                <div class="col-md-3 text-right"><br>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmarVaciarCarrito">
+                        Vaciar Carrito
+                    </button>
+                    
+                    <div class="modal fade" id="confirmarVaciarCarrito" tabindex="-1" role="dialog" aria-labelledby="modalVaciarCarritoLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="modalVaciarCarritoLabel">Confirmar Vaciar Carrito</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>¿Estás seguro que deseas vaciar todo el carrito?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <form action="{% url 'vaciar_carrito' %}" method="POST">
+                                        {% csrf_token %}
+                                        <br><br>
+                                        <button type="submit" class="btn btn-danger">Vaciar Carrito</button><br>
+                                    </form><br>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 text-right"><br>
+                    <a href="{% url 'metodo_pago' %}" class="btn btn-success">Continúa con la compra</a>
+                </div>
+            </div>
+            {% else %}
+            <div class="empty-cart-message">
+                <p>No hay items en el carrito</p>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+
+</body>
+</html>

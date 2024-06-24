@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/formulario.css' %}">
+</head>
+<body>
+
+<div class="container" id="container">
+    <div class="form-container sign-up">
+        <form id="registroForm" method="post" action="{% url 'registrar_usuario' %}">
+            {% csrf_token %}
+            <h1>Crea tu cuenta</h1>
+            <div class="social-icons">
+                <a href="#" class="icon"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="icon"><i class="fab fa-github"></i></a>
+                <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>Rellena los siguientes campos</span>
+            <input type="text" placeholder="Nombre" name="nombre_completo" required>
+            <input type="email" placeholder="Correo" name="email" required>
+            <input type="password" placeholder="Contraseña" name="password" required>
+            <input type="text" placeholder="Telefono" name="telefono" required>
+            <input type="text" placeholder="Dirección" name="direccion" required>
+            <button type="submit" onclick="showModalAndRedirect()">Registrate</button>
+
+        </form>
+    </div>
+    <div class="form-container sign-in">
+        <form id="loginForm" method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <h1>Inicia sesión</h1>
+            <div class="social-icons">
+                <a href="#" class="icon"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="icon"><i class="fab fa-github"></i></a>
+                <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>Usa tu correo para iniciar sesion</span>
+            <input type="email" placeholder="Correo" name="login_email" required>
+            <input type="password" placeholder="Contraseña" name="login_password" required>
+            <a href="#">¿Olvidaste tu contraseña?</a>
+            <button type="submit">Inicia!</button>
+        </form>
+    </div>
+    <div class="toggle-container">
+        <div class="toggle">
+            <div class="toggle-panel toggle-left">
+                <h1>Bienvenido a nuestras filas!</h1>
+                <p>Registra tus datos para tu cuenta, tus datos estan a salvo con nosotros</p>
+                <button class="hidden" id="login">Inicia</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>Bienvenido!</h1>
+                <p>Bienvenido otra vez querido lector! continua ampliando tus colección de libros.</p>
+                <button class="hidden" id="register">Registrate</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Mostrar modal de registro exitoso al enviar el formulario de registro
+        $('#registroForm').on('submit', function(e) {
+            e.preventDefault();
+            var form = this;
+
+            // Mostrar el modal
+            $('#registroExitosoModal').modal('show');
+
+            // Enviar el formulario después de 2 segundos
+            setTimeout(function() {
+                form.submit(); // Esto envía el formulario al servidor
+            }, 2000);
+
+            // Redirigir al índice después de 2.5 segundos
+            setTimeout(function() {
+                window.location.href = "{% url 'index' %}"; // Ajusta la URL al nombre de tu vista de índice
+            }, 2500);
+        });
+
+        // Mostrar formulario de registro al hacer clic en "Sign Up"
+        $('#register').on('click', function() {
+            $('#container').addClass('active');
+        });
+
+        // Mostrar formulario de inicio de sesión al hacer clic en "Sign In"
+        $('#login').on('click', function() {
+            $('#container').removeClass('active');
+        });
+    });
+</script>
+
+<script>
+    function showModalAndRedirect() {
+        $('#registroExitosoModal').modal('show');
+        setTimeout(function() {
+            window.location.href = "{% url 'index' %}";
+        }, 3000); // Redirige después de 3 segundos
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+.logo {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    width: 170px; /* Ajusta el tamaño según sea necesario */
+    height: auto; /* Para mantener la proporción */
+}
+
+.btn-crear-cuenta {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.libros-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.libro {
+    margin: 20px;
+    text-align: center;
+    width: 200px; /* Ancho fijo para cada libro */
+}
+
+.libro img {
+    width: 100%; /* Imagen del libro ocupa todo el ancho del contenedor */
+    height: auto; /* Para mantener la proporción */
+}
+
+.libro h4 {
+    margin-top: 10px; /* Margen superior para el título del libro */
+    font-size: 18px; /* Tamaño de fuente del título */
+}
+
+.libro p {
+    font-size: 14px; /* Tamaño de fuente para el precio y detalles */
+}
+
+.btn-agregar-carrito {
+    margin-top: 10px; /* Margen superior para el botón */
+    background-color: #047cc2; /* Color de fondo del botón */
+    color: #fff; /* Color de texto del botón */
+    border: none; /* Sin borde */
+    padding: 8px 16px; /* Espacio interno del botón */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}

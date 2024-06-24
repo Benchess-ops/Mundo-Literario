@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes - Librería Online</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <header style="background-color: #ffffff">
+        <div class="container">
+            <div class="logo-container">
+                <img src="{% static 'img/logo_1.png' %}" alt="Logo de la librería" class="logo">
+                <h1 style="color: #000000;">MundoLiterario</h1>
+            </div>
+            <nav>
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'index' %}" style="color: #000000;"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                    <li><a href="{% url 'ver_carrito' %}" style="color: #000000;"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
+                    <li><a href="{% url 'quienes_somos' %}" style="color: #000000;"><span class="glyphicon glyphicon-queen"></span> Socios</a></li>
+                    <li><a href="{% url 'cuenta' %}"style="color: #000;"><span class="glyphicon glyphicon-user"></span> Cuenta</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <a href="#" class="glyphicon glyphicon-search" style="color: #fff;"></a>
+                <a href="#" class="glyphicon glyphicon-user" style="color: #fff;"></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">¿Cómo puedo realizar una compra?</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        Para realizar una compra, simplemente navega por nuestro catálogo, selecciona los libros que desees comprar y añádelos al carrito. Luego, sigue los pasos de pago para completar tu compra.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">¿Cuáles son los métodos de pago aceptados?</a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Aceptamos diversos métodos de pago, incluyendo tarjetas de crédito, tarjetas de débito y PayPal. Puedes encontrar más información sobre los métodos de pago en nuestra página de pago.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">¿Cuál es el plazo de entrega de los libros?</a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        El plazo de entrega varía dependiendo de tu ubicación y del método de envío seleccionado. Generalmente, los libros llegan dentro de 3 a 7 días hábiles.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">¿Puedo devolver un libro?</a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Sí, aceptamos devoluciones dentro de un plazo determinado después de la entrega del libro. Para obtener más detalles sobre nuestra política de devoluciones, por favor consulta nuestros términos y condiciones.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">¿Cómo puedo contactar con el servicio de atención al cliente?</a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Puedes contactar con nuestro servicio de atención al cliente a través de correo electrónico, teléfono o chat en vivo. Visita nuestra página de contacto para obtener más información.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">¿Qué hago si tengo un problema con mi pedido?</a>
+                    </h4>
+                </div>
+                <div id="collapse6" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Si tienes algún problema con tu pedido, por favor ponte en contacto con nuestro servicio de atención al cliente lo antes posible. Estaremos encantados de ayudarte a resolver cualquier inconveniente.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="section-bottom">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <h2>Contacto</h2>
+                    <p> Puedes contactarnos a través de:</p>
+                    <ul>
+                        <li>Email: contactoOF@mundoliterario.cl</li>
+                        <li>Teléfono: +56 9 9332 9999</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h2>Ayuda</h2>
+                    <p>Si necesitas ayuda, no dudes en contactarnos o revisar nuestras preguntas frecuentes.</p>
+                    <ul>
+                        <li><a href="{% url 'preguntas_frecuentes' %}">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <br><br><br><br><p>Derechos de autor © 2024 - MundoLiterario</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

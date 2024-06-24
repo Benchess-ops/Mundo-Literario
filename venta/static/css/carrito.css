@@ -1,0 +1,29 @@
+.producto {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.producto img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 15px;
+}
+.producto .media {
+    display: flex;
+    align-items: center;
+}
+.producto .media-body {
+    flex-grow: 1;
+}
+.btn-eliminar {
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+.btn-eliminar:hover {
+    background-color: #c82333;
+}
